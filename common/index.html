@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -195,7 +195,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -2261,6 +2261,15 @@
   <a href="#geemap.common.get_geometry_coords" class="md-nav__link">
     <span class="md-ellipsis">
       get_geometry_coords()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.common.get_google_maps_api_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_google_maps_api_key()
     </span>
   </a>
   
@@ -4693,6 +4702,27 @@
   
   <span class="md-ellipsis">
     TNGIC 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshops/IGIC_2024/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IGIC 2024
   </span>
   
 
@@ -7768,6 +7798,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/142_google_maps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    142 google maps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -9302,6 +9353,15 @@
   <a href="#geemap.common.get_geometry_coords" class="md-nav__link">
     <span class="md-ellipsis">
       get_geometry_coords()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.common.get_google_maps_api_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_google_maps_api_key()
     </span>
   </a>
   
@@ -14431,7 +14491,10 @@ interval : boolean (default False)
 
     <span class="k">if</span> <span class="n">cmap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">cmap</span> <span class="o">=</span> <span class="s2">&quot;Blues&quot;</span>
-    <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">rgb2hex</span><span class="p">(</span><span class="n">cmap</span><span class="p">(</span><span class="n">i</span><span class="p">))[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cmap</span><span class="o">.</span><span class="n">N</span><span class="p">)]</span>
         <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#&quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">]</span>
@@ -25392,7 +25455,7 @@ such as 'crs_transform'.</p></td>
 
 
 <h2 id="geemap.common.ee_initialize" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">ee_initialize</span><span class="p">(</span><span class="n">token_name</span><span class="o">=</span><span class="s1">&#39;EARTHENGINE_TOKEN&#39;</span><span class="p">,</span> <span class="n">auth_mode</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">service_account</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">auth_args</span><span class="o">=</span><span class="p">{},</span> <span class="n">user_agent_prefix</span><span class="o">=</span><span class="s1">&#39;geemap&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">ee_initialize</span><span class="p">(</span><span class="n">token_name</span><span class="o">=</span><span class="s1">&#39;EARTHENGINE_TOKEN&#39;</span><span class="p">,</span> <span class="n">auth_mode</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">service_account</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">auth_args</span><span class="o">=</span><span class="p">{},</span> <span class="n">user_agent_prefix</span><span class="o">=</span><span class="s1">&#39;geemap&#39;</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 
 <a href="#geemap.common.ee_initialize" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -25415,40 +25478,54 @@ such as 'crs_transform'.</p></td>
       <tr>
         <td><code>token_name</code></td>
         <td><code>str</code></td>
-        <td><p>The name of the Earth Engine token. Defaults to "EARTHENGINE_TOKEN".
-In Colab, you can also set a secret named "EE_PROJECT_ID" to initialize Earth Engine.</p></td>
+        <td><p>The name of the Earth Engine token.
+Defaults to "EARTHENGINE_TOKEN". In Colab, you can also set a secret
+named "EE_PROJECT_ID" to initialize Earth Engine.</p></td>
         <td><code>&#39;EARTHENGINE_TOKEN&#39;</code></td>
       </tr>
       <tr>
         <td><code>auth_mode</code></td>
         <td><code>str</code></td>
-        <td><p>The authentication mode, can be one of colab, notebook, localhost, or gcloud.
-See https://developers.google.com/earth-engine/guides/auth for more details. Defaults to None.</p></td>
+        <td><p>The authentication mode, can be one of colab,
+notebook, localhost, or gcloud.
+See https://developers.google.com/earth-engine/guides/auth for more
+details. Defaults to None.</p></td>
         <td><code>None</code></td>
       </tr>
       <tr>
         <td><code>service_account</code></td>
         <td><code>bool</code></td>
-        <td><p>If True, use a service account. Defaults to False.</p></td>
+        <td><p>If True, use a service account.
+Defaults to False.</p></td>
         <td><code>False</code></td>
       </tr>
       <tr>
         <td><code>auth_args</code></td>
         <td><code>dict</code></td>
-        <td><p>Additional authentication parameters for aa.Authenticate(). Defaults to {}.</p></td>
+        <td><p>Additional authentication parameters for
+aa.Authenticate(). Defaults to {}.</p></td>
         <td><code>{}</code></td>
       </tr>
       <tr>
         <td><code>user_agent_prefix</code></td>
         <td><code>str</code></td>
-        <td><p>If set, the prefix (version-less) value used for setting the user-agent string. Defaults to "geemap".</p></td>
+        <td><p>If set, the prefix (version-less)
+value used for setting the user-agent string. Defaults to "geemap".</p></td>
         <td><code>&#39;geemap&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>project</code></td>
+        <td><code>str</code></td>
+        <td><p>The Google cloud project ID for Earth Engine.
+Defaults to None.</p></td>
+        <td><code>None</code></td>
       </tr>
       <tr>
         <td><code>kwargs</code></td>
         <td><code>dict</code></td>
-        <td><p>Additional parameters for ee.Initialize(). For example,
-opt_url='https://earthengine-highvolume.googleapis.com' to use the Earth Engine High-Volume platform. Defaults to {}.</p></td>
+        <td><p>Additional parameters for ee.Initialize().
+For example, opt_url='https://earthengine-highvolume.googleapis.com'
+to use the Earth Engine High-Volume platform. Defaults to {}.</p></td>
         <td><code>{}</code></td>
       </tr>
   </tbody>
@@ -25461,20 +25538,30 @@ opt_url='https://earthengine-highvolume.googleapis.com' to use the Earth Engine 
     <span class="n">service_account</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">auth_args</span><span class="o">=</span><span class="p">{},</span>
     <span class="n">user_agent_prefix</span><span class="o">=</span><span class="s2">&quot;geemap&quot;</span><span class="p">,</span>
+    <span class="n">project</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Authenticates Earth Engine and initialize an Earth Engine session</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        token_name (str, optional): The name of the Earth Engine token. Defaults to &quot;EARTHENGINE_TOKEN&quot;.</span>
-<span class="sd">            In Colab, you can also set a secret named &quot;EE_PROJECT_ID&quot; to initialize Earth Engine.</span>
-<span class="sd">        auth_mode (str, optional): The authentication mode, can be one of colab, notebook, localhost, or gcloud.</span>
-<span class="sd">            See https://developers.google.com/earth-engine/guides/auth for more details. Defaults to None.</span>
-<span class="sd">        service_account (bool, optional): If True, use a service account. Defaults to False.</span>
-<span class="sd">        auth_args (dict, optional): Additional authentication parameters for aa.Authenticate(). Defaults to {}.</span>
-<span class="sd">        user_agent_prefix (str, optional): If set, the prefix (version-less) value used for setting the user-agent string. Defaults to &quot;geemap&quot;.</span>
-<span class="sd">        kwargs (dict, optional): Additional parameters for ee.Initialize(). For example,</span>
-<span class="sd">            opt_url=&#39;https://earthengine-highvolume.googleapis.com&#39; to use the Earth Engine High-Volume platform. Defaults to {}.</span>
+<span class="sd">        token_name (str, optional): The name of the Earth Engine token.</span>
+<span class="sd">            Defaults to &quot;EARTHENGINE_TOKEN&quot;. In Colab, you can also set a secret</span>
+<span class="sd">            named &quot;EE_PROJECT_ID&quot; to initialize Earth Engine.</span>
+<span class="sd">        auth_mode (str, optional): The authentication mode, can be one of colab,</span>
+<span class="sd">            notebook, localhost, or gcloud.</span>
+<span class="sd">            See https://developers.google.com/earth-engine/guides/auth for more</span>
+<span class="sd">            details. Defaults to None.</span>
+<span class="sd">        service_account (bool, optional): If True, use a service account.</span>
+<span class="sd">            Defaults to False.</span>
+<span class="sd">        auth_args (dict, optional): Additional authentication parameters for</span>
+<span class="sd">            aa.Authenticate(). Defaults to {}.</span>
+<span class="sd">        user_agent_prefix (str, optional): If set, the prefix (version-less)</span>
+<span class="sd">            value used for setting the user-agent string. Defaults to &quot;geemap&quot;.</span>
+<span class="sd">        project (str, optional): The Google cloud project ID for Earth Engine.</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">        kwargs (dict, optional): Additional parameters for ee.Initialize().</span>
+<span class="sd">            For example, opt_url=&#39;https://earthengine-highvolume.googleapis.com&#39;</span>
+<span class="sd">            to use the Earth Engine High-Volume platform. Defaults to {}.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">import</span> <span class="nn">httplib2</span>
     <span class="kn">from</span> <span class="nn">.__init__</span> <span class="kn">import</span> <span class="n">__version__</span>
@@ -25487,12 +25574,18 @@ opt_url='https://earthengine-highvolume.googleapis.com' to use the Earth Engine 
         <span class="k">if</span> <span class="n">in_colab_shell</span><span class="p">():</span>
             <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">userdata</span>
 
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">project_id</span> <span class="o">=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;EE_PROJECT_ID&quot;</span><span class="p">)</span>
-                <span class="n">auth_mode</span> <span class="o">=</span> <span class="s2">&quot;colab&quot;</span>
-                <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;project&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">project_id</span>
-            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-                <span class="n">auth_mode</span> <span class="o">=</span> <span class="s2">&quot;notebook&quot;</span>
+            <span class="n">auth_args</span><span class="p">[</span><span class="s2">&quot;auth_mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;colab&quot;</span>
+            <span class="k">if</span> <span class="n">project</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">project</span> <span class="o">=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;EE_PROJECT_ID&quot;</span><span class="p">)</span>
+                    <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;project&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">project</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                        <span class="s2">&quot;Please set a secret named &#39;EE_PROJECT_ID&#39; in Colab or provide a project ID.&quot;</span>
+                    <span class="p">)</span>
+            <span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">(</span><span class="o">**</span><span class="n">auth_args</span><span class="p">)</span>
+            <span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">auth_mode</span> <span class="o">=</span> <span class="s2">&quot;notebook&quot;</span>
 
@@ -31750,6 +31843,85 @@ Source code adapted from https://github.com/mapbox/rasterio/blob/master/rasterio
 
 
 
+<h2 id="geemap.common.get_google_maps_api_key" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_google_maps_api_key</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;GOOGLE_MAPS_API_KEY&#39;</span><span class="p">)</span></code>
+
+
+<a href="#geemap.common.get_google_maps_api_key" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Retrieves the Google Maps API key from the environment or Colab user data.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>key</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the environment variable or Colab user
+data key where the API key is stored. Defaults to
+'GOOGLE_MAPS_API_KEY'.</p></td>
+        <td><code>&#39;GOOGLE_MAPS_API_KEY&#39;</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>str</code></td>
+      <td><p>The API key, or None if it could not be found.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>geemap/common.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_google_maps_api_key</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;GOOGLE_MAPS_API_KEY&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieves the Google Maps API key from the environment or Colab user data.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key (str, optional): The name of the environment variable or Colab user</span>
+<span class="sd">            data key where the API key is stored. Defaults to</span>
+<span class="sd">            &#39;GOOGLE_MAPS_API_KEY&#39;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: The API key, or None if it could not be found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">in_colab_shell</span><span class="p">():</span>
+        <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">userdata</span>
+
+        <span class="k">if</span> <span class="n">api_key</span> <span class="o">:=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">api_key</span>
+
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
 <h2 id="geemap.common.get_image_collection_thumbnails" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">get_image_collection_thumbnails</span><span class="p">(</span><span class="n">ee_object</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="n">dimensions</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;jpg&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 
@@ -32868,7 +33040,10 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
     <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-    <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap_name</span><span class="p">,</span> <span class="n">n_class</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap_name</span><span class="p">,</span> <span class="n">n_class</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap_name</span><span class="p">,</span> <span class="n">n_class</span><span class="p">)</span>
     <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">rgb2hex</span><span class="p">(</span><span class="n">cmap</span><span class="p">(</span><span class="n">i</span><span class="p">))[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cmap</span><span class="o">.</span><span class="n">N</span><span class="p">)]</span>
     <span class="k">if</span> <span class="n">hashtag</span><span class="p">:</span>
         <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#&quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">]</span>
@@ -50705,9 +50880,23 @@ such as https://developers.google.com/earth-engine/datasets/catalog/MODIS_051_MC
         <span class="p">)</span>
     <span class="n">close_button_args</span><span class="p">[</span><span class="s2">&quot;icon&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">close_button_icon</span>
 
-    <span class="n">toolbar_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButton</span><span class="p">(</span><span class="o">**</span><span class="n">widget_args</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">toolbar_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButton</span><span class="p">(</span><span class="o">**</span><span class="n">widget_args</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">widget_args</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;layout&quot;</span><span class="p">)</span>
+        <span class="n">toolbar_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButton</span><span class="p">(</span><span class="o">**</span><span class="n">widget_args</span><span class="p">)</span>
+        <span class="n">toolbar_button</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="s2">&quot;28px&quot;</span>
+        <span class="n">toolbar_button</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="s2">&quot;28px&quot;</span>
+        <span class="n">toolbar_button</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">padding</span> <span class="o">=</span> <span class="s2">&quot;0px 0px 0px 4px&quot;</span>
 
-    <span class="n">close_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButton</span><span class="p">(</span><span class="o">**</span><span class="n">close_button_args</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">close_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButton</span><span class="p">(</span><span class="o">**</span><span class="n">close_button_args</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">close_button_args</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;layout&quot;</span><span class="p">)</span>
+        <span class="n">close_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButton</span><span class="p">(</span><span class="o">**</span><span class="n">close_button_args</span><span class="p">)</span>
+        <span class="n">close_button</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="s2">&quot;28px&quot;</span>
+        <span class="n">close_button</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="s2">&quot;28px&quot;</span>
+        <span class="n">close_button</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">padding</span> <span class="o">=</span> <span class="s2">&quot;0px 0px 0px 4px&quot;</span>
 
     <span class="n">toolbar_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">()</span>
     <span class="n">toolbar_widget</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">toolbar_button</span><span class="p">]</span>
@@ -52569,7 +52758,7 @@ If not provided, the CRS is inferred from the Dataset's attributes ('crs' attrib
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
         <script src="../js/timeago.min.js"></script>
       

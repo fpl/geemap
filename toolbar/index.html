@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -195,7 +195,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -1735,6 +1735,27 @@
   
   <span class="md-ellipsis">
     TNGIC 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshops/IGIC_2024/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IGIC 2024
   </span>
   
 
@@ -4801,6 +4822,27 @@
   
   <span class="md-ellipsis">
     141 image array viz
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/142_google_maps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    142 google maps
   </span>
   
 
@@ -7911,7 +7953,10 @@ cleanup state when toggled off.</p></td>
                 <span class="k">if</span> <span class="n">selected</span> <span class="o">!=</span> <span class="s2">&quot;Any&quot;</span><span class="p">:</span>
                     <span class="n">n_class</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">classes</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 
-                <span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">colormap</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">n_class</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">colormap</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">n_class</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">colormap</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">n_class</span><span class="p">)</span>
                 <span class="n">cmap_colors</span> <span class="o">=</span> <span class="p">[</span>
                     <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">rgb2hex</span><span class="p">(</span><span class="n">colors</span><span class="p">(</span><span class="n">i</span><span class="p">))[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">colors</span><span class="o">.</span><span class="n">N</span><span class="p">)</span>
                 <span class="p">]</span>
@@ -7992,7 +8037,10 @@ cleanup state when toggled off.</p></td>
             <span class="k">if</span> <span class="n">classes</span><span class="o">.</span><span class="n">value</span> <span class="o">!=</span> <span class="s2">&quot;Any&quot;</span><span class="p">:</span>
                 <span class="n">n_class</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">classes</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 
-            <span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">colormap</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">n_class</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">colormap</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">n_class</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">colormap</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">n_class</span><span class="p">)</span>
             <span class="n">cmap_colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">rgb2hex</span><span class="p">(</span><span class="n">colors</span><span class="p">(</span><span class="n">i</span><span class="p">))[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">colors</span><span class="o">.</span><span class="n">N</span><span class="p">)]</span>
 
             <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))</span>
@@ -9799,7 +9847,7 @@ cleanup state when toggled off.</p></td>
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
         <script src="../js/timeago.min.js"></script>
       
