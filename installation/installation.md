@@ -8,6 +8,14 @@ the [Earth Engine Code Editor](https://code.earthengine.google.com/) to get fami
 
 ![signup](https://i.imgur.com/ng0FzUT.png)
 
+## Install using uv
+
+[uv](https://docs.astral.sh/uv) is an extremely fast Python package and project manager, written in Rust. It is designed to be a drop-in replacement for pip. You can install geospatial using uv as follows:
+
+```bash
+uv pip install geemap
+```
+
 ## Install from PyPI
 
 **Geemap** is available on [PyPI](https://pypi.org/project/geemap/). To install **geemap**, run this command in your terminal:
@@ -44,12 +52,6 @@ The optional dependencies can be installed using one of the following:
 -   `pip install geemap[sql]`: installing psycopg2, sqlalchemy.
 -   `pip install geemap[streamlit]`: installing streamlit-folium.
 -   `pip install geemap[vector]`: installing geopandas, osmnx.
-
-Optionally, you can install some [Jupyter notebook extensions](https://github.com/ipython-contrib/jupyter_contrib_nbextensions), which can improve your productivity in the notebook environment. Some useful extensions include Table of Contents, Gist-it, Autopep8, Variable Inspector, etc. See this [post](https://towardsdatascience.com/jupyter-notebook-extensions-517fa69d2231) for more information.
-
-```bash
-conda install jupyter_contrib_nbextensions -c conda-forge
-```
 
 Check the **YouTube** video below on how to install geemap using conda.
 
